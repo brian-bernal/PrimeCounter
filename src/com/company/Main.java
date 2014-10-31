@@ -7,13 +7,13 @@ public class Main {
 //So the 9999 position in the array (since array begins counting at 0) is the 10000th prime number, not including 2. So technically it is the 10001th prime number
     public static void main(String[] args) {
         int primeCounter = 0;
-        int loop = 2;
-        int[] primes = new int[10000];
+        int loop = 3;
+        int[] primes = new int[10000];  //There are 10000 numbers in this array from 0-9999
         boolean isPrime = true;
 
         while (primeCounter < 10000) {
             if (loop % 2 == 0) {  //if number is even it isn't prime
-                loop++;
+                loop += 2;
             } else {
                 for (int i = 0; i < primeCounter; i++) {  //if number divisible by a prime it isn't prime
                     if (loop % primes[i] == 0)
@@ -23,8 +23,8 @@ public class Main {
                     primes[primeCounter] = loop;
                     primeCounter++;
                 }
-                loop++;
-                isPrime = true;
+                loop += 2;
+                isPrime = true;  //reset isPrime to true since a number is prime until proven guilty ;)
             }
         }
         System.out.println(primes[9999]);
